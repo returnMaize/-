@@ -1,0 +1,49 @@
+标识符
+变量名 函数名 函数参数 属性名
+
+变量名
+ECMAScript的变量是松散类型（可以保存任何类型的数据）
+
+数据类型
+简单数据类型
+null undefined string number boolean symbol
+复杂数据类型
+object
+
+typeof （未经声明的变量返回undefined 这是唯一一个使用用未申明变量不报错的情况）
+结果
+undefined
+boolean
+string
+function
+  number
+object
+从技术角度上讲 函数也在ECMAScript中是对象 不是一种数据结构 然而函数也确实也有一些特殊的属性 因此通过typeof操作符来区分函数和其他对象是有必要的
+
+
+Boolean
+布尔转换
+空字符 0 NaN null undefined
+
+Number
+使用IEEE754格式表示整数和浮点数 （这种格式有存在精度不准的问题）
+由于浮点数保存时内存空间是整数的两倍 所以ECMAScript会不失时机的把浮点数值转化为整数值
+浮点数最高精度是17位小数
+
+最小数值
+Number.MIN_VALUE 5e-324
+最大数值
+Number.MAX_VALUE
+
+Infinity - Infinity
+isFinite() 判断数值是否超出最大或最小数值
+isNaN()
+数值装换
+undefined -> NaN
+string -> 纯数字字符正常转换（包括16进制 8进制） 其他均为NaN
+object -> vlaueOf() -> toString()
+
+parseInt(num, 以几进制进行转换) 字符解析整数
+parseFloat() 字符解析浮点数
+
+
