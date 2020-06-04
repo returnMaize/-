@@ -71,5 +71,3 @@ location对象:
   location是最有用的BOM对象之一
 }
 
-test github emoji
-
