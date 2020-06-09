@@ -98,3 +98,48 @@ location对象:
   location 方法 assign() replace() reload()
 }
 
+navigator
+{
+  最早由Netscape Navigator2.0引入的navigator对象 现在已经成为识别客户端浏览器的事实标准 虽然其他浏览器也通过其他方式提供了相同或相识的信息 但navigator对象却是所有支持javaScript的浏览器所共有的 与其他BOM对象一样 每个浏览器中的navigator对象也都有一套自己的属性
+  navigator {
+    appCodeName 浏览器名称
+    appMinorVersion 次版本信息
+    appName 完整浏览器名称
+    appVersion 浏览器版本
+    buildID 浏览器编译版本
+    cookieEnabled cookie是否启用
+    cpuClass 客户端计算机CPU类型
+    javaEnabled 浏览器中是否启用java
+    language 浏览器主语言
+    mimeTypes 浏览器中注册的MIME类型数组
+    onLine 浏览器是否链接到因特网
+    oscpu 浏览器操作系统 cpu
+    platform 浏览器所在的系统平台
+    plugins 浏览器插件信息的数组
+    preference 设置用户首选项
+    product 产品名称
+    ...
+  }
+
+  检测插件
+  检测浏览器中是否安装特定的插件是一种最常见的检测例程 对于非IE浏览器 可以使用plugins数组来达到这个目的
+  插件对象{ name, description, filename, length }
+
+  注册处理程序
+  Firefox 2为navigator对象新增了registerContentHanlder() 和 registerProtocolHandler() 方法（这两个方法是在HTML5中定义的）这两个方法可以让一个站点指明它可以处理特定类型的信息
+}
+
+screen {
+  JavaScript中有几个对象在编程中用处不大 而screen对象就是其中之一
+}
+
+history {
+  history对象保存这用户上网的历史记录 从窗口被打开的那一刻起 因为history是window对象的属性 因此 每个浏览器窗口 标签页 乃至每个框架 都有自己的history对象与特定的window对象关联 出于安全方面的考虑 开发人员无法得知用户浏览过的URL 不过 借由用户访问过的页面列表 同样可以在不知道实际URL情况下实现后退和前进
+
+  使用go方法可以在用户的历史记录中任意跳转 可以向后也可以向前 这个方法接受一个参数 表示向后或向前跳转的页面数的一个整数值
+  history.go(num | str) str: 跳转历史记录中包含该字符串的第一个位置（可能前进 可能后退）
+  另外 还可以使用两个简写方法back() 和 forward() 代替go() 顾名思义 这两个方法可以模仿浏览器的后退 和 前进
+
+  除了上述几个方法外 history对象还有一个length属性
+}
+
