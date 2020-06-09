@@ -68,6 +68,25 @@ window:
 
 location对象:
 {
-  location是最有用的BOM对象之一
+  location是最有用的BOM对象之一 他提供了与当前窗口中加载的闻到那股有关的信息 还提供了一些导航功能 事实上location对象是一个很特别的对象 因为它即使window对象的属性 也是document对象的属性 换句话 window.location 和 document.location引用的是同一个对象
+  location对象的用处不只是表现在它保存着当前文档的信息 还表现在它将URL解析为独立的片段 让开发人员可以通过不同的属性访问这些片段
+  location: {
+    hash,
+      host,
+      hostname,
+      href,
+      pathname,
+      port,
+      protocol,
+      search
+  }
+
+  使用location对象可以通过很多方式来改变浏览器的位置 首先 也是最常用的方式 就是使用assign()方法并为其传递一个URL 例如location.assign('http://www.baidu.com')
+  这样就可以立即打开新URL并在浏览器的历史记录中生成一条记录 如果将location.href 或 window.location设置为一个URL值 也会以该值调用assign
+  window.location = 'http://www.baidu.com' ===
+    location.herf = 'http://www.baidu.com' ===
+      location.assign('http://www.baidu.com')
+
+  另外 修改location对象上的其他属性 也可以改变当前加载的也main 例如hash search hostname pathname port
 }
 
