@@ -88,5 +88,13 @@ location对象:
       location.assign('http://www.baidu.com')
 
   另外 修改location对象上的其他属性 也可以改变当前加载的也main 例如hash search hostname pathname port
+  这些修改都会导致URL的变化 并且会被存到浏览器的历史记录中（包括hash）
+  如果想要禁用这种保存历史行为 可以使用location.replace()方法
+  最后一个与位置有关的方法是reload()作用是重新加载当前显示的页面
+  reload() 有可能重缓存中加载
+  reload(true) 从服务器加载
+
+  location 属性 hash hostname href pathname port protocol search
+  location 方法 assign() replace() reload()
 }
 
