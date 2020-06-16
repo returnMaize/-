@@ -37,4 +37,123 @@ Node类型 {
   node.insertBefore(需要插入的节点，参考节点) 将节点插入到参考节点之前（如果传入的节点存在与当前文档 那么将会将该节点从原来的位置转移到node最后一个子节点位置）
   node.replaceChild(新节点，旧节点) 替换节点（如果传入的节点存在与当前文档 那么将会将该节点从原来的位置转移到node最后一个子节点位置）
   node.removeChild(需要移除的节点)
+
+  所有类型节点都有的方法
+  node.cloneNode(接受一个布尔值 是否深拷贝） 用于克隆节点 return 克隆节点
+  node.normalize() 用于去除空文本节点 和 合并相邻文本节点
 }
+
+Doucment类型 {
+  JavaScript通过Document类型表示文档 在浏览器中 document对象是HTMLDocument（继承Document类型）的一个实例 document表示整个HTMl页面 而且document对象是window对象的一个属性 因此可以作为全局对象来访问
+  可以通过console.dir(document)来查看document对象 从而得知
+  document继承 HTMLDocument -> Document -> Node -> EventTarget -> Object
+  document.body
+  document.documentElement
+  document.doctype
+  在html标签之前的任何注释都被当作document对象的子节点 chrome
+  但在IE9以上 会把html标签之后的注释也当作document对象的子节点
+
+  文档信息
+  document.title(既可以获取 也可以设置)
+  document.URL
+  document.domain 网页域名
+  document.referrer
+
+  获取元素方法
+  document.getElementById()
+  document.getElementsByTagName()
+  document.getElementsByName()
+
+  特殊集合
+  document.anchors 带有name的a元素
+  document.forms 文档中所有form元素
+  document.images 文档中所有img元素
+  document.links 文档中带有href特性的a元素
+
+  DOM 特性检测
+  document.implementation.hasFeature()
+
+  文档写入
+  document.write()
+  document.writeIn()
+  document.close()
+  document.open()
+}
+
+Element类型 {
+  element.tagName return 大写标签名
+  element.id
+  element.className
+  element.title
+  element.lang
+  element.dir
+  并不元素上所有的特性都可以通过这种方式获取到 用户自定义的属性不可以直接通过这种方式获取到
+
+  获取特性
+  element.getAttribute()
+  element.setAttribute() 如果特性不存在 会创建并设置该特性
+  element.removeAttribute()
+  注意：特性名不区分大小写 另外 根据HTML5规范 自定义特性应该加上data - 前缀 以便验证
+
+  有两个特殊的特性 他们通过element直接访问 和 通过 getAttribute访问返回的值并不相同
+  style 直接访问返回对象 getAttribute返回字符
+  onclick(事件)
+
+  attributes属性
+  element.attrubutes
+  element.attributes.getNamedItem(name)
+  element.attributes.removeNamedItem(name)
+  element.attributes.setNamedItem(node)
+  element.attribute.item(pos)
+
+  创建元素
+  document.createElement(tagName)
+
+  元素的子节点
+  元素也支持getElementsByTagName()
+}
+
+Text类型 {
+  nodeType === 3
+
+  创建文本节点
+  document.createTextNode
+
+  normalize()
+  splitText()
+}
+
+Comment类型 {
+  nodeType === 8
+  document.createComment
+}
+
+CDATASection类型 {
+  针对XML
+}
+
+DocumentType类型 {
+  nodeType === 10
+  在DOM1级中 DocumentType对象不能动态创建
+  DocumentType 保存在 document.doctype中
+}
+
+DocumentFragment类型 {
+  nodeType === 11
+  DOM规定文档片段是一种轻量级的文档
+
+  创建
+  document.createDocumentFragment()
+
+  在文档片段中操作DOM可以避免浏览器重复渲染问题
+}
+
+Attr 类型 {
+  nodeType === 2
+  元素特性在DOM中以Attr类型来表示
+}
+
+动态脚本 动态插入script
+动态样式 动态插入link
+
+操作表格
