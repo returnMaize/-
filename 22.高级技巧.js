@@ -80,11 +80,3 @@ Object.prototype.toString return 字符[object NativeConstructorName]
   Object.freeze(obj) （属性不可扩展 现有属性不可删除不可修改 但可以通过设置set函数完成修改）
   Object.isFrozen(obj)
 }
-
-高级定时器
-{
-
-}
-
-
-
